@@ -1,0 +1,29 @@
+export const ASSIGNMENT_TYPES = {
+  TEXT: 'TEXT',
+  MCQ: 'MCQ',
+  FILE: 'FILE',
+};
+
+export const ASSIGNMENT_STATUS = {
+  DRAFT: 'DRAFT',
+  PUBLISHED: 'PUBLISHED',
+  CLOSED: 'CLOSED',
+};
+
+export const BATCH_STATUS = {
+  DRAFT: 'DRAFT',
+  PUBLISHED: 'PUBLISHED',
+  CLOSED: 'CLOSED',
+};
+
+export const USER_ROLES = {
+  ADMIN: 'ADMIN',
+  TEACHER: 'TEACHER',
+  STUDENT: 'STUDENT',
+};
+
+export const TEACHER_STATUS = {
+  PENDING: 'PENDING',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED',
+};

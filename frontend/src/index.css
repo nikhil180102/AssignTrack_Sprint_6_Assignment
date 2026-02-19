@@ -1,0 +1,126 @@
+/* src/index.css - no @apply version (works without PostCSS @apply) */
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+/* Dark mode flag for the browser */
+html.dark {
+  color-scheme: dark;
+}
+
+/* Use CSS variables for easy theme colors */
+:root {
+  --bg: #ffffff;
+  --card: #ffffff;
+  --text: #0f172a;      /* slate-900 */
+  --muted: #6b7280;     /* gray-500 */
+  --border: #e6e7e9;    /* gray-200 */
+  --panel: #f8fafc;     /* gray-50 */
+}
+
+html.dark {
+  --bg: #0f1724;        /* slate-900-ish */
+  --card: #0b1220;      /* slate-800-ish */
+  --text: #e6eef8;      /* light text */
+  --muted: #cbd5e1;     /* gray-300 */
+  --border: #374151;    /* gray-700 */
+  --panel: #0b1220;
+}
+
+/* Apply base colors */
+html, body, #root {
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100%;
+}
+
+/* Basic page container default */
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+               Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color .18s ease, color .18s ease;
+}
+
+/* Small helpers to mimic Tailwind backgrounds/borders without @apply */
+.bg-page { background-color: var(--bg); }
+.bg-card { background-color: var(--card); }
+.text-muted { color: var(--muted); }
+.border-default { border-color: var(--border); }
+.panel { background-color: var(--panel); }
+
+/* Optional: theme-friendly scrollbars */
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { background: transparent; }
+html.dark ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.16); border-radius: 999px; }
+html ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.12); border-radius: 999px; }
+
+
+@keyframes gradient-xy {
+  0%, 100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+}
+
+.animate-gradient-xy {
+  background-size: 200% 200%;
+  animation: gradient-xy 10s ease infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 10s ease-in-out infinite;
+}
+
+/* Global dark contrast overrides for existing Tailwind gray utilities */
+html.dark .text-gray-900 { color: #f3f4f6 !important; }
+html.dark .text-gray-800 { color: #e5e7eb !important; }
+html.dark .text-gray-700 { color: #d1d5db !important; }
+html.dark .text-gray-600 { color: #9ca3af !important; }
+html.dark .text-gray-500 { color: #9ca3af !important; }
+html.dark .text-gray-400 { color: #6b7280 !important; }
+
+html.dark .bg-white { background-color: #111827 !important; }
+html.dark .bg-gray-50 { background-color: #0f172a !important; }
+html.dark .bg-gray-100 { background-color: #1f2937 !important; }
+html.dark .bg-slate-50 { background-color: #0f172a !important; }
+html.dark .bg-slate-100 { background-color: #1e293b !important; }
+html.dark .border-gray-100 { border-color: #374151 !important; }
+html.dark .border-gray-200 { border-color: #374151 !important; }
+html.dark .border-slate-200 { border-color: #334155 !important; }
+html.dark .border-slate-300 { border-color: #475569 !important; }
+
+html.dark .text-slate-900 { color: #f3f4f6 !important; }
+html.dark .text-slate-800 { color: #e5e7eb !important; }
+html.dark .text-slate-700 { color: #d1d5db !important; }
+html.dark .text-slate-600 { color: #9ca3af !important; }
+html.dark .text-slate-500 { color: #94a3b8 !important; }
+html.dark .text-slate-400 { color: #64748b !important; }
+
+
